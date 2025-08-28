@@ -1,16 +1,16 @@
-import { useMemo, useState } from "react";
-import TodoItem from "../components/todoItem";
+import { useMemo, useState } from 'react';
+import TodoItem from '../components/todoItem';
 
 function createTask(text) {
   const id =
-    typeof crypto !== "undefined" && crypto.randomUUID
+    typeof crypto !== 'undefined' && crypto.randomUUID
       ? crypto.randomUUID()
       : Date.now().toString(36) + Math.random().toString(36).slice(2);
   return { id, text: text.trim(), done: false };
 }
 
 export default function TodoApp() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [tasks, setTasks] = useState([]);
 
   const addTask = (e) => {
@@ -18,7 +18,7 @@ export default function TodoApp() {
     const value = text.trim();
     if (!value) return;
     setTasks((prev) => [...prev, createTask(value)]);
-    setText("");
+    setText('');
   };
 
   const toggleTask = (id) =>
